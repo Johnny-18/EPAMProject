@@ -1,0 +1,20 @@
+<div className='modal'>
+    <div className='modal-content' style="height: '60%'">
+      <div className='modalLogIn-title'>Авторизация</div>
+      <br>
+      <div className='modal-mainContent'>
+        <div>Email</div>
+        <input  
+            placeholder='введите Ваш email' 
+            [(ngModel)]="email"
+            (ngModelChange)="inputHandlerEmail()"
+             />
+        <div>Пароль</div>
+        <input  
+            placeholder='введите Ваш пароль' 
+            [(ngModel)]="password" 
+            (ngModelChange)="inputHandlerPassword()"/>
+        <button (click)="login()">Log in</button>  
+      </div>
+    </div> 
+  </div>

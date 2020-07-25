@@ -1,0 +1,60 @@
+<div>
+    <div>Регистрация</div>
+    <div class="register">
+        <div>Введите Email</div>
+        <input 
+            type="text" 
+            placeholder="введите Ваш email"
+            [(ngModel)]="email">
+        <div>Введите Имя</div>
+        <input 
+            type="text" 
+            placeholder="введите Ваше имя"
+            [(ngModel)]="firstName">
+        <div>Введите Фамилия</div>
+        <input 
+            type="text" 
+            placeholder="введите Вашу фамилию"
+            [(ngModel)]="lastName">
+        <div>Введите Имя пользователя</div>
+        <input 
+            type="text" 
+            placeholder="введите Имя пользователя"
+            [(ngModel)]="userName">
+        <div>Выберите Стать</div>
+        <select name="gender" size="1" [(ngModel)]="gender">
+            <option disabled>Выберите Ваш пол</option>
+            <option value="Мужская">Мужская</option>
+            <option value="Женская">Женская</option>
+        </select>
+        <div>Ваша дата рождения</div>
+        <input 
+            type="date" 
+            [(ngModel)]="dateOfBirth">
+        <div>Выберите страну</div>
+        <select name="country" size="1" [(ngModel)]="country">
+            <option value="Украина">Украина</option>
+            <option value="Россия">Россия</option>
+            <option value="Белорусь">Белорусь</option>
+        </select>
+        <div>Выберите город</div>
+        <select name="city" size="1" [(ngModel)]="city">
+            <option value="Киев">Киев</option>
+            <option value="Москва">Москва</option>
+            <option value="Минск">Минск</option>
+        </select>
+        <div>Пароль</div>
+        <input 
+            type="text" 
+            placeholder="введите Пароль"
+            [(ngModel)]="password">
+        <div>Подтверждение пароля</div>
+        <input 
+            type="text" 
+            placeholder="Подтверждение пароля"
+            [(ngModel)]="confPassword"
+            >
+        <br>
+        <button (click)="register()">Зарегистрироваться</button>  
+    </div>  
+</div>

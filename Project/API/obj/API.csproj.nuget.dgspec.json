@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\API\\API.csproj": {}
+    "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\API\\API.csproj": {
+    "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\API\\API.csproj",
+        "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\API\\API.csproj",
+        "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\API\\obj\\",
+        "outputPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj": {
-                "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj"
+              "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj": {
+                "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj"
               }
             }
           }
@@ -92,14 +92,14 @@
         }
       }
     },
-    "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj": {
+    "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj",
+        "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj",
         "projectName": "BLL_",
-        "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj",
+        "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj",
         "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\obj\\",
+        "outputPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -118,8 +118,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj": {
-                "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj"
+              "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj": {
+                "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj"
               }
             }
           }
@@ -175,14 +175,14 @@
         }
       }
     },
-    "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj": {
+    "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj",
+        "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj",
         "projectName": "DAL_",
-        "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj",
+        "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj",
         "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\obj\\",
+        "outputPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserForRegister } from '../UserForRegister';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -16,11 +17,11 @@ export class RegisterComponent implements OnInit {
   password:string
   confPassword:string
   gender:string
-  dateOfBirth:any
+  age:any
   country:string
   city:string
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
   }
@@ -34,10 +35,12 @@ export class RegisterComponent implements OnInit {
      email:this.email,
      password:this.password,
      gender:this.gender,
-     dateOfBirth:this.dateOfBirth,
+     age:this.age,
      country:this.country,
      city:this.city
    };
+
+   this.userService.registerUser(this.userForRegister);
    console.log(this.userForRegister);
   }
 

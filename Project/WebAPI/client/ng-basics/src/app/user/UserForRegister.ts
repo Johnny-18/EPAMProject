@@ -5,7 +5,7 @@ export class UserForRegister{
     email:string
     password:string
     gender:string
-    dateOfBirth:any
+    age:any
     country:string
     city:string
 }

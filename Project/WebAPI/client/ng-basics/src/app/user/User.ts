@@ -6,7 +6,7 @@ export class User{
     email:string
     password:string
     gender:string
-    dateOfBirth:any
+    age:any
     dateOfCreating:any
     county:string
     city:string

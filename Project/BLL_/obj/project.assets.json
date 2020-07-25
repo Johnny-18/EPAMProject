@@ -5949,11 +5949,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj",
+      "projectUniqueName": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj",
       "projectName": "BLL_",
-      "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj",
+      "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj",
       "packagesPath": "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\obj\\",
+      "outputPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5972,8 +5972,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj": {
-              "projectPath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\DAL_\\DAL_.csproj"
+            "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj": {
+              "projectPath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\DAL_\\DAL_.csproj"
             }
           }
         }

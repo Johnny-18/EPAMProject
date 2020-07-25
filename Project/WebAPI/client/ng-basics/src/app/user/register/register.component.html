@@ -1,60 +1,67 @@
-<div>
+<form action="">
     <div>Регистрация</div>
     <div class="register">
-        <div>Введите Email</div>
+        <label for="input-email">Введите Email</label>
         <input 
-            type="text" 
+            id="input-email"
+            type="email" 
             placeholder="введите Ваш email"
             [(ngModel)]="email">
-        <div>Введите Имя</div>
+        <label for="input-firstName">Введите Имя</label>
         <input 
+            id="input-firstName"
             type="text" 
             placeholder="введите Ваше имя"
             [(ngModel)]="firstName">
-        <div>Введите Фамилия</div>
+        <label for="input-lastName">Введите Фамилия</label>
         <input 
+            id="input-lastName"
             type="text" 
             placeholder="введите Вашу фамилию"
             [(ngModel)]="lastName">
-        <div>Введите Имя пользователя</div>
+        <label for="input-userName">Введите Имя пользователя</label>
         <input 
+            id="input-userName"
             type="text" 
             placeholder="введите Имя пользователя"
             [(ngModel)]="userName">
-        <div>Выберите Стать</div>
-        <select name="gender" size="1" [(ngModel)]="gender">
+        <label for="select-gender">Выберите Стать</label>
+        <select id="select-gender" name="gender" size="1" [(ngModel)]="gender">
             <option disabled>Выберите Ваш пол</option>
             <option value="Мужская">Мужская</option>
             <option value="Женская">Женская</option>
         </select>
-        <div>Ваша дата рождения</div>
+        <label for="input-age">Ваш возраст</label>
         <input 
-            type="date" 
-            [(ngModel)]="dateOfBirth">
-        <div>Выберите страну</div>
-        <select name="country" size="1" [(ngModel)]="country">
+            id="input-age"
+            type="number" 
+            [(ngModel)]="age">
+        <label for="select-country">Выберите страну</label>
+        <select id="select-country" name="country" size="1" [(ngModel)]="country">
             <option value="Украина">Украина</option>
             <option value="Россия">Россия</option>
             <option value="Белорусь">Белорусь</option>
         </select>
-        <div>Выберите город</div>
-        <select name="city" size="1" [(ngModel)]="city">
+        <label for="select-city">Выберите город</label>
+        <select id="select-city" name="city" size="1" [(ngModel)]="city">
             <option value="Киев">Киев</option>
             <option value="Москва">Москва</option>
             <option value="Минск">Минск</option>
         </select>
-        <div>Пароль</div>
+        <label for="input-password">Пароль</label>
         <input 
+            id="input-password"
             type="text" 
             placeholder="введите Пароль"
             [(ngModel)]="password">
-        <div>Подтверждение пароля</div>
+        <label for="input-confPassword">Подтверждение пароля</label>
         <input 
-            type="text" 
+            id="input-confPassword"
+            type="text"
             placeholder="Подтверждение пароля"
             [(ngModel)]="confPassword"
             >
         <br>
         <button (click)="register()">Зарегистрироваться</button>  
     </div>  
-</div>
+</form>

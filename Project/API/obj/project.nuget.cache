@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qIRz+s4XXP8xWcw4JueRdBK1tKNCiLXrEZogQvGcezBzHkgtj7D67c+g1sMB5Nw5vSr+MQCeWAmKY0y1JUj/hA==",
+  "dgSpecHash": "rR0V9//40UXygz+Z3tRxRsXABgiOA9rYRVFvGkEtOZTzm+f79FfXD2PD2e0m1lHk+jG7ZIfufGASL34JSndEMw==",
   "success": true,
-  "projectFilePath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\API\\API.csproj",
+  "projectFilePath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

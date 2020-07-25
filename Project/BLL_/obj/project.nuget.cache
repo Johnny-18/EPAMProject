@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NvPZJZsY2BjN7NDbtHfzgdP8LZ9Bw8haCkMTTRHuT+vaO03rwXURkon00XNorgQ4VKtJeV7Pk3Zfl8PTHtz1uQ==",
+  "dgSpecHash": "cz5J7AiPlQq9TBtZW4auCsU0UjR62SeqNgUAYRXC+XZSdVts1JXzB0ZR7D48BQE3w+mU4mLwaZyVG5lNkprqUQ==",
   "success": true,
-  "projectFilePath": "D:\\Study\\EPAM\\GitHub\\myProjects\\Project\\BLL_\\BLL_.csproj",
+  "projectFilePath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BLL_\\BLL_.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

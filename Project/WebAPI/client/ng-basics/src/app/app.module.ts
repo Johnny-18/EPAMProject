@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { HeaderComponent } from './header/header.component';
+import { SearchComponent } from './search/search.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { RegisterComponent } from './user/register/register.component';
     BlogsComponent,
     BlogComponent,
     HomeComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    HeaderComponent,
+    SearchComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal'}),

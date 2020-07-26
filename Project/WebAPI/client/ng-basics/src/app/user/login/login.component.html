@@ -7,13 +7,11 @@
         <input  
             placeholder='введите Ваш email' 
             [(ngModel)]="email"
-            (ngModelChange)="inputHandlerEmail()"
              />
         <div>Пароль</div>
         <input  
             placeholder='введите Ваш пароль' 
-            [(ngModel)]="password" 
-            (ngModelChange)="inputHandlerPassword()"/>
+            [(ngModel)]="password"/>
         <button (click)="login()">Log in</button>  
       </div>
     </div> 

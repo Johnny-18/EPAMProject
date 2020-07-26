@@ -1,5 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { UserForLogin } from '../UserForLogin';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +14,21 @@ export class LoginComponent implements OnInit {
   password:string = ''
   email:string = ''
 
-  constructor() { }
+  constructor(private userService:UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    console.log(this.email + ' ' + this.password);
-    //login service
-
+    this.userService.loginUser(this.userForLogin).subscribe(
+      (res: any) => {
+        localStorage.setItem('token', res.token);
+        this.router.navigateByUrl('/blog');
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   inputHandlerEmail(){

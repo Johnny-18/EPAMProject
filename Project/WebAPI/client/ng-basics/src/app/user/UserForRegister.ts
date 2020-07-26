@@ -1,11 +1,11 @@
 export class UserForRegister{
+    email:string
+    password:string
     userName:string
     firstName:string
     lastName:string
-    email:string
-    password:string
     gender:string
-    age:any
-    country:string
     city:string
+    country:string
+    age:string
 }

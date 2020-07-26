@@ -40,8 +40,8 @@ export class RegisterComponent implements OnInit {
      city:this.city
    };
 
-   this.userService.registerUser(this.userForRegister);
-   console.log(this.userForRegister);
+   this.userService.registerUser(this.userForRegister).subscribe();
+   console.log('end');
   }
 
 }

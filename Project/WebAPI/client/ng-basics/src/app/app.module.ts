@@ -7,15 +7,15 @@ import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './posts/post/post.component';
-import { BlogsComponent } from './blogs/blogs.component';
-import { BlogComponent } from './blogs/blog/blog.component';
 import { HomeComponent } from './home/home.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import { HeaderComponent } from './header/header.component';
-import { SearchComponent } from './search/search.component';
-import { MainComponent } from './main/main.component';
+import { BlogComponent } from './blog/blog.component';
+import { HeaderComponent } from './home/header/header.component';
+import { SearchComponent } from './home/search/search.component';
+import { UserService } from './user/user.service';
+import { environment } from 'src/environments/environment';
+import { BASE_URL } from './app-injections-tokens';
 
 @NgModule({
   declarations: [
@@ -24,13 +24,11 @@ import { MainComponent } from './main/main.component';
     RegisterComponent,
     PostsComponent,
     PostComponent,
-    BlogsComponent,
+    HomeComponent,
     BlogComponent,
     HomeComponent,
-    NavMenuComponent,
     HeaderComponent,
-    SearchComponent,
-    MainComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal'}),
@@ -43,7 +41,10 @@ import { MainComponent } from './main/main.component';
       { path: 'register', component : RegisterComponent}
     ])
   ],
-  providers: [],
+  providers: [UserService,{
+    provide:BASE_URL,
+    useValue:environment.baseUrl
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -41,7 +41,8 @@ import { BASE_URL } from './app-injections-tokens';
       { path: 'register', component : RegisterComponent}
     ])
   ],
-  providers: [UserService,{
+  providers: [UserService,
+  {
     provide:BASE_URL,
     useValue:environment.baseUrl
   }],

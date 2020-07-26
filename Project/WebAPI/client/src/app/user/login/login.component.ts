@@ -31,12 +31,4 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  inputHandlerEmail(){
-    console.log(this.email);
-  }
-
-  inputHandlerPassword(){
-    console.log(this.password);
-  }
-
 }

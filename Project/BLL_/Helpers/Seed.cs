@@ -41,9 +41,8 @@ namespace BLL_.Helpers
             {
                 var adminUser = new User
                 {
+                    Email="adm@gmail.com",
                     UserName = "Admin",
-                    FirstName = "1",
-                    LastName = "1"
                 };
 
                 IdentityResult result = _userManager.CreateAsync(adminUser, "1_Password").Result;
@@ -63,9 +62,8 @@ namespace BLL_.Helpers
             {
                 var adminUser = new User
                 {
+                    Email="mod@gmail.com",
                     UserName = "Moderator",
-                    FirstName = "1",
-                    LastName = "1"
                 };
 
                 IdentityResult result = _userManager.CreateAsync(adminUser, "2_Password").Result;

@@ -35,21 +35,21 @@ namespace BLL_.Services
             return false;
         }
 
-        //public async Task<CommentDTO> Get(int id)
-        //{
-        //    if (id <= 0)
-        //        throw new InvalidIdException("Id must be more than 0");
+        public async Task<CommentDTO> Get(int id)
+        {
+            if (id <= 0)
+                throw new InvalidIdException("Id must be more than 0");
 
-        //    var comment = await _unitOfWork.CommentRepository.GetById(id);
-        //    return _mapper.Map<CommentDTO>(comment);
-        //}
+            var comment = await _unitOfWork.CommentRepository.GetById(id);
+            return _mapper.Map<CommentDTO>(comment);
+        }
 
-        //public async Task<IEnumerable<CommentDTO>> GetAll()
-        //{
-        //    var comments = await _unitOfWork.CommentRepository.GetAll();
+        public async Task<IEnumerable<CommentDTO>> GetAll()
+        {
+            var comments = await _unitOfWork.CommentRepository.GetAll();
 
-        //    return _mapper.Map<IEnumerable<CommentDTO>>(comments);
-        //}
+            return _mapper.Map<IEnumerable<CommentDTO>>(comments);
+        }
 
         public async Task<bool> Remove(int id)
         {

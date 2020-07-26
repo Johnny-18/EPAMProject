@@ -16,6 +16,8 @@ namespace BLL_.Helpers
             CreateMap<RoleDTO, Role>().ReverseMap();
             CreateMap<TagDTO, Tag>().ReverseMap();
             CreateMap<UserDTO, User>().ReverseMap();
+            CreateMap<UserForRegisterDTO, User>().ReverseMap();
+            CreateMap<UserForLoginDTO, User>().ReverseMap();
         }
     }
 }

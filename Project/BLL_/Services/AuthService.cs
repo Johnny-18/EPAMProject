@@ -89,6 +89,11 @@ namespace BLL_.Services
 
         public async Task<UserDTO> Register(UserForRegisterDTO user)
         {
+            if (await _userManager.FindByEmailAsync(user.Email) != null)
+            {
+                return null;
+            }
+
             var userToCreate = _mapper.Map<User>(user);
 
             var result = await _userManager.CreateAsync(userToCreate, user.Password);

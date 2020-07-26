@@ -16,3 +16,12 @@ D:\Study\EPAM\GitHub\myProjects\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.Assemb
 D:\Study\EPAM\GitHub\myProjects\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.csproj.CoreCompileInputs.cache
 D:\Study\EPAM\GitHub\myProjects\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.dll
 D:\Study\EPAM\GitHub\myProjects\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.pdb
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\bin\Debug\netcoreapp3.1\DAL_.deps.json
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\bin\Debug\netcoreapp3.1\DAL_.dll
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\bin\Debug\netcoreapp3.1\DAL_.pdb
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.csprojAssemblyReference.cache
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.AssemblyInfoInputs.cache
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.AssemblyInfo.cs
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.csproj.CoreCompileInputs.cache
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.dll
+D:\Study\EPAM\GitHub\EPAMProject\Project\DAL_\obj\Debug\netcoreapp3.1\DAL_.pdb

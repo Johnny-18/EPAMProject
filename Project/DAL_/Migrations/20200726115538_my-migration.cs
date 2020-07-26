@@ -43,7 +43,7 @@ namespace DAL_.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Gender = table.Column<string>(nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    Age = table.Column<string>(nullable: true),
                     Created = table.Column<DateTime>(nullable: false),
                     City = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: true),
@@ -193,7 +193,8 @@ namespace DAL_.Migrations
                 name: "Blogs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false),
+                    BlogName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

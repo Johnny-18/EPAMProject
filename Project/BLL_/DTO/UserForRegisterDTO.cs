@@ -24,7 +24,7 @@ namespace BLL_.DTO
         [Required]
         public string Country { get; set; }
         [Required]
-        public DateTime DateOfBirth { get; set; }
+        public string Age { get; set; }
         public DateTime Created { get; set; }
 
         public UserForRegisterDTO()

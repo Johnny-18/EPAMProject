@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -32,8 +32,9 @@ namespace API.Controllers
             }
 
             // return route(URL) to user controller
-            return CreatedAtRoute("GetUser",
-                new { controller = "users", id = createdUser.Id }, createdUser);
+            //return CreatedAtRoute("GetUser",
+            //    new { controller = "users", id = createdUser.Id }, createdUser);
+            return Ok(createdUser);
         }
 
         [HttpPost("login")]

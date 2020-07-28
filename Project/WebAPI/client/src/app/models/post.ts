@@ -2,7 +2,7 @@ export class Post{
     id:number
     title:string
     text:string
-    tagId:number
-    blogId:number
+    tagId:string
+    user_Id:number
     created:any
 }

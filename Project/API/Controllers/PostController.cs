@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -103,6 +105,25 @@ namespace API.Controllers
             return Ok(tag);
         }
 
+        [HttpGet("user/{id}/posts")]
+        public async Task<IActionResult> GetPostsByUserId(int id)
+        {
+            var posts = await _postService.GetAll();
+            var filtered = new List<PostDTO>();
+            foreach (var post in posts)
+            {
+                if(post.User_Id == id)
+                {
+                    filtered.Add(post);
+                }
+            }
+
+            if (filtered == null)
+                return NotFound();
+
+            return Ok(filtered);
+        }
+
         //[Authorize]
         [HttpPost]
         public async Task<IActionResult> CreatePost([FromBody]PostToCreateDTO newPost)
@@ -195,9 +216,6 @@ namespace API.Controllers
         public async Task<IActionResult> DeletePost(int id)
         {
             var post = await _postService.Get(id);
-            if (post.User_Id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
-                return BadRequest();
-
             if (post == null)
                 return NotFound();
 

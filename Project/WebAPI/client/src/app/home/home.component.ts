@@ -23,14 +23,13 @@ export class HomeComponent implements OnInit {
     if(!this.postsFromBack){
       this.postsFromBack.forEach(element => {
         let post = new Post();
-        let tag;
 
         post = {
           id: element.id,
           title:element.title,
           text:element.text,
           tagId:element.tag_id,
-          blogId:element.blog_id,
+          user_Id:element.user_id,
           created:element.created
         };
 

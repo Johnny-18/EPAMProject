@@ -19,6 +19,8 @@
     <Compile Remove="Migrations\20200726115538_my-migration.Designer.cs" />
     <Compile Remove="Migrations\20200726185037_my-migration.cs" />
     <Compile Remove="Migrations\20200726185037_my-migration.Designer.cs" />
+    <Compile Remove="Migrations\20200728213949_my-migration.cs" />
+    <Compile Remove="Migrations\20200728213949_my-migration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

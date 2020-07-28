@@ -165,3 +165,4 @@ D:\Study\EPAM\GitHub\EPAMProject\Project\BlogTest\bin\Debug\netcoreapp3.1\BlogTe
 D:\Study\EPAM\GitHub\EPAMProject\Project\BlogTest\obj\Debug\netcoreapp3.1\BlogTest.csproj.CoreCompileInputs.cache
 D:\Study\EPAM\GitHub\EPAMProject\Project\BlogTest\obj\Debug\netcoreapp3.1\BlogTest.dll
 D:\Study\EPAM\GitHub\EPAMProject\Project\BlogTest\obj\Debug\netcoreapp3.1\BlogTest.pdb
+D:\Study\EPAM\GitHub\EPAMProject\Project\BlogTest\bin\Debug\netcoreapp3.1\Ninject.dll

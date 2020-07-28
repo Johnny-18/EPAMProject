@@ -15,20 +15,25 @@ export class PostService{
                 @Inject(BASE_URL) private baseUrl: string,
                 private router:Router) { }
 
-    getById(id:number){
-        return this.http.get(`${this.baseUrl}api/posts/id/'${id.toString()}`);
+    getById(id:string){
+        return this.http.get(`${this.baseUrl}api/posts/id/'${id}`);
     }
 
     getAll(){
         return this.http.get(`${this.baseUrl}api/posts`);
     }
 
+    getPostsByUserId(id:string){
+        return this.http.get(`${this.baseUrl}api/posts/user/${id}/posts`);
+    }
+
     createPost(model:PostToCreate){
+        console.log(JSON.stringify(model));
         return this.http.post(`${this.baseUrl}api/posts`, JSON.stringify(model),{
             headers: new HttpHeaders({
                 "Content-Type": "application/json"
               })
-        })
+        });
     }
 
     deletePost(id:number){

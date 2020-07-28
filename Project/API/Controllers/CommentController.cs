@@ -37,7 +37,7 @@ namespace API.Controllers
             return Ok(user);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateComment([FromBody]CommentDTO comment)
         {
@@ -55,7 +55,7 @@ namespace API.Controllers
             return BadRequest();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("id/{id}")]
         public async Task<IActionResult> DeleteComment(int id)
         {

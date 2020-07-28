@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rR0V9//40UXygz+Z3tRxRsXABgiOA9rYRVFvGkEtOZTzm+f79FfXD2PD2e0m1lHk+jG7ZIfufGASL34JSndEMw==",
+  "dgSpecHash": "2yeKltR/UnTb2xa9GCuLqbVk9r0sqv2OPQLrS4iEU4zKdisQYBuMyBNHMQlZer8Sxd2l3qQM19+OrJaDV7vDIA==",
   "success": true,
   "projectFilePath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -62,6 +62,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\ninject\\3.3.4\\ninject.3.3.4.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

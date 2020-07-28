@@ -196,22 +196,21 @@ namespace DAL_.Migrations
                     Text = table.Column<string>(nullable: true),
                     Created = table.Column<DateTime>(nullable: false),
                     User_Id = table.Column<int>(nullable: false),
-                    Tag_Id = table.Column<int>(nullable: false),
-                    BlogId = table.Column<int>(nullable: true)
+                    Tag_Id = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Posts_AspNetUsers_BlogId",
-                        column: x => x.BlogId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Posts_Tags_Tag_Id",
                         column: x => x.Tag_Id,
                         principalTable: "Tags",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Posts_AspNetUsers_User_Id",
+                        column: x => x.User_Id,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -377,14 +376,14 @@ namespace DAL_.Migrations
                 column: "User_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_BlogId",
-                table: "Posts",
-                column: "BlogId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Posts_Tag_Id",
                 table: "Posts",
                 column: "Tag_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_User_Id",
+                table: "Posts",
+                column: "User_Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -420,10 +419,10 @@ namespace DAL_.Migrations
                 name: "Posts");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "Tags");
+                name: "AspNetUsers");
         }
     }
 }

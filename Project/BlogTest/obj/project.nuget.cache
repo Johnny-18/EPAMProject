@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g0foja/OglmUbvzYXR2hrcgmHUpAMF8pRi3GdGSuEN7kb1d629CPz2Pf4fNf0Va/IykwlmMgSO4doC9JxLeEXQ==",
+  "dgSpecHash": "VMD5BynAnlfjf2DeGMI4Kj3Mb2ZovurP/jkUdzoCmFU8Z12b0sPnQIIoFtRFvwyXi+y4kUmYiV/uVlCxl1IoCQ==",
   "success": true,
   "projectFilePath": "D:\\Study\\EPAM\\GitHub\\EPAMProject\\Project\\BlogTest\\BlogTest.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,7 @@
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\moq\\4.14.5\\moq.4.14.5.nupkg.sha512",
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
+    "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\ninject\\3.3.4\\ninject.3.3.4.nupkg.sha512",
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\Ivan Zherybor\\.nuget\\packages\\nunit3testadapter\\3.15.1\\nunit3testadapter.3.15.1.nupkg.sha512",

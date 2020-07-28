@@ -18,7 +18,7 @@ namespace DAL_.Entyties
         [ForeignKey("Tag")]
         public int Tag_Id { get; set; }
         public Tag Tag { get; set; }
-        public User Blog { get; set; }
+        public User User { get; set; }
         public ICollection<Image> Images { get; set; }
         public ICollection<Like> Likes { get; set; }
         public ICollection<Comment> Comments { get; set; }

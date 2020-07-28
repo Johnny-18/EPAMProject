@@ -15,7 +15,7 @@ export class CreatePostComponent implements OnInit {
   title:string
   text:string
   tagName:string
-  blogId:string
+  userId:number
 
   post:any
 
@@ -25,16 +25,18 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost(){
-    this.blogId = this.userService.getDecodedAccessToken(localStorage.getItem('token')).nameid;
-    console.log(this.blogId);
+    this.userId = this.userService.getDecodedAccessToken(localStorage.getItem('token')).nameid;
+    console.log('user id ', this.userId);
     const post:PostToCreate = {
       title:this.title,
       text:this.text,
       tagName:`#${this.tagName}`,
-      blogId: 1
+      userId: this.userId
     };
 
-    const res = this.postService.createPost(post).subscribe(data => this.post = data);
+    console.log('post', post);
+
+    this.postService.createPost(post).subscribe(data => this.post = data, err => { console.log(err)});
     this.router.navigate(['blog']);
     console.log(this.post);
   }

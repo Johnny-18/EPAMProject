@@ -103,9 +103,6 @@ namespace DAL_.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BlogId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
@@ -124,9 +121,9 @@ namespace DAL_.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BlogId");
-
                     b.HasIndex("Tag_Id");
+
+                    b.HasIndex("User_Id");
 
                     b.ToTable("Posts");
                 });
@@ -417,13 +414,15 @@ namespace DAL_.Migrations
 
             modelBuilder.Entity("DAL_.Entyties.Post", b =>
                 {
-                    b.HasOne("DAL_.Entyties.User", "Blog")
-                        .WithMany("Posts")
-                        .HasForeignKey("BlogId");
-
                     b.HasOne("DAL_.Entyties.Tag", "Tag")
                         .WithMany("Posts")
                         .HasForeignKey("Tag_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL_.Entyties.User", "User")
+                        .WithMany("Posts")
+                        .HasForeignKey("User_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

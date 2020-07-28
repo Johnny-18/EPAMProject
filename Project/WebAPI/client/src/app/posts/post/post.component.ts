@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/app/models/post';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -18,7 +19,7 @@ export class PostComponent implements OnInit {
   isLogining:boolean=false
   @Input() isEnable:boolean = true
 
-  constructor(private postService:PostService, private userService:UserService) { }
+  constructor(private postService:PostService, private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('token') != null)
@@ -28,10 +29,7 @@ export class PostComponent implements OnInit {
   }
 
   delete(){
-
-  }
-
-  edit(){
-
+    this.postService.deletePost(this.post.id).subscribe();
+    this.router.navigate(['']);
   }
 }

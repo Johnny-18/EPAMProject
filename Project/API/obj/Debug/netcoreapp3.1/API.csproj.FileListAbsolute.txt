@@ -214,3 +214,4 @@ D:\Study\EPAM\GitHub\EPAMProject\Project\API\obj\Debug\netcoreapp3.1\API.csproj.
 D:\Study\EPAM\GitHub\EPAMProject\Project\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.Manifest.cache
 D:\Study\EPAM\GitHub\EPAMProject\Project\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.xml
 D:\Study\EPAM\GitHub\EPAMProject\Project\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+D:\Study\EPAM\GitHub\EPAMProject\Project\API\bin\Debug\netcoreapp3.1\Ninject.dll

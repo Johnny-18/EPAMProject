@@ -25,7 +25,6 @@ D:\Study\EPAM\GitHub\myProjects\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.pdb
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.csprojAssemblyReference.cache
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.AssemblyInfoInputs.cache
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.AssemblyInfo.cs
-D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.csproj.CoreCompileInputs.cache
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.dll
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.pdb
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\bin\Debug\netcoreapp3.1\BLL_.deps.json
@@ -34,3 +33,4 @@ D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\bin\Debug\netcoreapp3.1\BLL_.pdb
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\bin\Debug\netcoreapp3.1\DAL_.dll
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\bin\Debug\netcoreapp3.1\DAL_.pdb
 D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.csproj.CopyComplete
+D:\Study\EPAM\GitHub\EPAMProject\Project\BLL_\obj\Debug\netcoreapp3.1\BLL_.csproj.CoreCompileInputs.cache

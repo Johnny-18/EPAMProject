@@ -13,12 +13,12 @@ namespace DAL_.Entyties
         public string Title { get; set; }
         public string Text { get; set; }
         public DateTime Created { get; set; }
-        [ForeignKey("Blog")]
-        public int Blog_Id { get; set; }
+        [ForeignKey("User")]
+        public int User_Id { get; set; }
         [ForeignKey("Tag")]
         public int Tag_Id { get; set; }
         public Tag Tag { get; set; }
-        public Blog Blog { get; set; }
+        public User Blog { get; set; }
         public ICollection<Image> Images { get; set; }
         public ICollection<Like> Likes { get; set; }
         public ICollection<Comment> Comments { get; set; }

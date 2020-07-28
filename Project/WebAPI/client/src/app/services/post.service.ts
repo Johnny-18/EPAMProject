@@ -15,18 +15,15 @@ export class PostService{
                 @Inject(BASE_URL) private baseUrl: string,
                 private router:Router) { }
 
-    getById(id:number):any{
+    getById(id:number){
         return this.http.get(`${this.baseUrl}api/posts/id/'${id.toString()}`);
     }
 
-    getAll():any{
+    getAll(){
         return this.http.get(`${this.baseUrl}api/posts`);
     }
 
     createPost(model:PostToCreate){
-        console.log(model);
-        console.log(this.baseUrl);
-
         return this.http.post(`${this.baseUrl}api/posts`, JSON.stringify(model),{
             headers: new HttpHeaders({
                 "Content-Type": "application/json"
@@ -35,17 +32,24 @@ export class PostService{
     }
 
     deletePost(id:number){
-        console.log('id', id);
         return this.http.delete(`${this.baseUrl}api/posts/id/${id}`);
     }
 
     changePost(model:any){
-        console.log('model ', model);
         return this.http.put(`${this.baseUrl}api/posts/id/${model.id}`, JSON.stringify(model) ,{
             headers: new HttpHeaders({
                 "Content-Type": "application/json"
               })
             });
+    }
+
+    search(searchStr:string){
+        console.log(searchStr);
+        return this.http.get(`${this.baseUrl}api/posts?str=${searchStr}`);
+    }
+
+    getComments(id:number){
+        return this.http.get(`${this.baseUrl}api/posts/id/${id.toString()}/comments`);
     }
 
 }

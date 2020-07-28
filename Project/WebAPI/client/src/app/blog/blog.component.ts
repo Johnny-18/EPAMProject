@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../services/blog.service';
 import { UserService } from '../services/user.service';
-import { User } from '../models/user';
 
 @Component({
   selector: 'app-blog',
@@ -10,29 +8,17 @@ import { User } from '../models/user';
 })
 export class BlogComponent implements OnInit {
   
-  blogName:string = "Blog name"
-  userFromDB:any
-  isBlogCreated:boolean = true
+  userId:string
+  userName:string
   blogFromDB:any
 
-  constructor(private blogService: BlogService, private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    let token = localStorage.getItem('token');
-    if(token == null)
-    {
-      this.isBlogCreated = false;
-    }
-    else{
-      let nameid = this.userService.getDecodedAccessToken(token).nameid;
-      this.userService.get(nameid).subscribe(data => {this.userFromDB = data; console.log('data' , data);});
-      console.log('userfromdb:' , this.userFromDB);
-    }
+    let decodedToken = this.userService.getDecodedAccessToken(localStorage.getItem('token'));
+    this.userId = decodedToken.nameid;
+    this.userName = decodedToken.unique_name;
+    console.log(this.userName, this.userId);
   }
 
-  createBlog(){
-    this.blogService.createBlog(this.userFromDB.id, this.userFromDB.username)
-                    .subscribe(data => this.blogFromDB = data, 
-                              err => console.log("Don't create" + JSON.stringify(err)));
-  }
 }

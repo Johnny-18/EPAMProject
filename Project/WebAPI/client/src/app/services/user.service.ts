@@ -44,6 +44,10 @@ export class UserService {
   get(id){
     return this.http.get(`${this.baseUrl}api/users/id/${id.toString()}`);
   }
+
+  getPosts(id){
+    return this.http.get(`${this.baseUrl}api/user/id/${id}/posts`);
+  }
   
   getDecodedAccessToken(token: string): any {
     try{

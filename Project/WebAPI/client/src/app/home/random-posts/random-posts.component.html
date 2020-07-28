@@ -1,1 +1,3 @@
-<app-post *ngFor="let post of posts" [isEnable]='isEnable'></app-post>
+<div class="main-posts">
+    <app-post *ngFor="let post of posts" [isEnable]='isEnable' [post]="post"></app-post>
+</div>

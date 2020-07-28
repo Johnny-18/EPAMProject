@@ -5,7 +5,7 @@ namespace DAL_.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IBlogRepository BlogRepository { get; }
+        //IBlogRepository BlogRepository { get; }
 
         ICommentRepository CommentRepository { get; }
 

@@ -33,18 +33,11 @@ namespace DAL_.Reposytories
             return post.Likes;
         }
 
-        public async Task<Blog> GetBlog(int id)
-        {
-            var post = await context.Posts.FindAsync(id);
+        //public async Task<Blog> GetBlog(int id)
+        //{
+        //    var post = await context.Posts.FindAsync(id);
 
-            return post.Blog;
-        }
-
-        public async Task<Tag> GetTag(int id)
-        {
-            var post = await context.Posts.FindAsync(id);
-
-            return post.Tag;
-        }
+        //    return post.Blog;
+        //}
     }
 }

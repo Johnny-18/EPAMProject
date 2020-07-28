@@ -44,7 +44,7 @@ namespace API
             services.AddScoped<Seed>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPostService, PostService>();
-            services.AddScoped<IBlogService, BlogService>();
+            //services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<ITagService, TagService>();

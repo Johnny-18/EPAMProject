@@ -19,19 +19,6 @@ namespace DAL_.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DAL_.Entyties.Blog", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BlogName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blogs");
-                });
-
             modelBuilder.Entity("DAL_.Entyties.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -116,7 +103,7 @@ namespace DAL_.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Blog_Id")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Created")
@@ -132,9 +119,12 @@ namespace DAL_.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int>("User_Id")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("Blog_Id");
+                    b.HasIndex("BlogId");
 
                     b.HasIndex("Tag_Id");
 
@@ -380,15 +370,6 @@ namespace DAL_.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("DAL_.Entyties.Blog", b =>
-                {
-                    b.HasOne("DAL_.Entyties.User", "User")
-                        .WithOne("Blog")
-                        .HasForeignKey("DAL_.Entyties.Blog", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DAL_.Entyties.Comment", b =>
                 {
                     b.HasOne("DAL_.Entyties.Post", "Post")
@@ -436,11 +417,9 @@ namespace DAL_.Migrations
 
             modelBuilder.Entity("DAL_.Entyties.Post", b =>
                 {
-                    b.HasOne("DAL_.Entyties.Blog", "Blog")
+                    b.HasOne("DAL_.Entyties.User", "Blog")
                         .WithMany("Posts")
-                        .HasForeignKey("Blog_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BlogId");
 
                     b.HasOne("DAL_.Entyties.Tag", "Tag")
                         .WithMany("Posts")

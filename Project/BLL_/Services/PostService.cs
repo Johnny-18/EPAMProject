@@ -54,14 +54,14 @@ namespace BLL_.Services
             return mapper.Map<IEnumerable<PostDTO>>(posts);
         }
 
-        public async Task<BlogDTO> GetBlog(int id)
-        {
-            if (id <= 0)
-                throw new InvalidIdException("Id must be more than 0");
+        //public async Task<BlogDTO> GetBlog(int id)
+        //{
+        //    if (id <= 0)
+        //        throw new InvalidIdException("Id must be more than 0");
 
-            var blog = await unitOfWork.PostRepository.GetBlog(id);
-            return mapper.Map<BlogDTO>(blog);
-        }
+        //    var blog = await unitOfWork.PostRepository.GetBlog(id);
+        //    return mapper.Map<BlogDTO>(blog);
+        //}
 
         public async Task<IEnumerable<CommentDTO>> GetComments(int id)
         {
@@ -88,15 +88,6 @@ namespace BLL_.Services
 
             var likes = await unitOfWork.PostRepository.GetLikes(id);
             return mapper.Map<IEnumerable<LikeDTO>>(likes);
-        }
-
-        public async Task<TagDTO> GetTag(int id)
-        {
-            if (id <= 0)
-                throw new InvalidIdException("Id must be more than 0");
-
-            var tag = await unitOfWork.PostRepository.GetTag(id);
-            return mapper.Map<TagDTO>(tag);
         }
 
         public async Task<bool> Remove(int id)
@@ -140,29 +131,29 @@ namespace BLL_.Services
                 throw new ArgumentNullException();
 
             var posts = await unitOfWork.PostRepository.GetAll();
-            var postDTOs = mapper.Map<IEnumerable<PostDTO>>(posts);
 
             var filtered = new List<PostDTO>();
             string searchStrModified = searchStr.ToLower().Replace(" ", "");
 
             if(searchStrModified.IndexOf('#') == -1)
             {
-                return SearchByText(searchStrModified, postDTOs, filtered);
+                return SearchByText(searchStrModified, posts, filtered);
             }
 
-            return SearchByTag(searchStrModified, postDTOs, filtered);
+            return SearchByTag(searchStrModified, posts, filtered);
         }
 
         private IEnumerable<PostDTO> SearchByTag(string searchStr, 
-                                                IEnumerable<PostDTO> postDTOs,
+                                                IEnumerable<Post> posts,
                                                 List<PostDTO> filtered)
         {
-            foreach (var postDTO in postDTOs)
+            
+            foreach (var post in posts)
             {
-                string name = postDTO.Tag.Name.ToLower().Replace(" ", "");
+                string name = post.Tag.Name.ToLower().Replace(" ", "");
                 if (name.IndexOf(searchStr) != -1)
                 {
-                    filtered.Add(postDTO);
+                    filtered.Add(mapper.Map<PostDTO>(post));
                 }
             }
 
@@ -170,15 +161,15 @@ namespace BLL_.Services
         }
 
         private IEnumerable<PostDTO> SearchByText(string searchStr, 
-                                                  IEnumerable<PostDTO> postDTOs,
+                                                  IEnumerable<Post> posts,
                                                   List<PostDTO> filtered)
         {
-            foreach (var postDTO in postDTOs)
+            foreach (var post in posts)
             {
-                string text = postDTO.Text.ToLower().Replace(" ", "");
+                string text = post.Text.ToLower().Replace(" ", "");
                 if (text.IndexOf(searchStr) != -1)
                 {
-                    filtered.Add(postDTO);
+                    filtered.Add(mapper.Map<PostDTO>(post));
                 }
             }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../models/post';
-import { PostService } from '../services/post.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-posts',
@@ -11,15 +10,18 @@ export class PostsComponent implements OnInit {
 
   posts:any;
   isEnable:boolean = true
+  userId:any
 
-  constructor(private postService: PostService) { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.userId = this.userService.getDecodedAccessToken(localStorage.getItem('token')).nameid;
     this.getAll();
   }
 
   getAll(){
-    this.postService.getAll();
+
+    this.userService.getPosts(this.userId).subscribe(data => this.posts = data);
     console.log(this.posts);
   }
 

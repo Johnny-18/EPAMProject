@@ -25,5 +25,12 @@ namespace DAL_.Reposytories
 
             return user.Comments;
         }
+
+        public async Task<IEnumerable<Post>> GetPosts(int id)
+        {
+            var tag = await context.Users.FindAsync(id);
+
+            return tag.Posts;
+        }
     }
 }

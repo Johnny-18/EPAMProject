@@ -12,15 +12,14 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './home/header/header.component';
-import { SearchComponent } from './home/search/search.component';
 import { UserService } from './services/user.service';
 import { environment } from 'src/environments/environment';
 import { BASE_URL} from './app-injections-tokens';
 import { RandomPostsComponent } from './home/random-posts/random-posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostService } from './services/post.service';
-import { BlogService } from './services/blog.service';
 import { CommentComponent } from './posts/post/comment/comment.component';
+import { CommentService } from './services/comment.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { CommentComponent } from './posts/post/comment/comment.component';
     BlogComponent,
     HomeComponent,
     HeaderComponent,
-    SearchComponent,
     RandomPostsComponent,
     CreatePostComponent,
     CommentComponent
@@ -54,7 +52,7 @@ import { CommentComponent } from './posts/post/comment/comment.component';
   ],
   providers: [UserService,
               PostService,
-              BlogService,
+              CommentService,
               {
                 provide:BASE_URL,
                 useValue:environment.baseUrl

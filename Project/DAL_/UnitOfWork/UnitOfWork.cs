@@ -9,7 +9,7 @@ namespace DAL_.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly BlogContext context;
-        private IBlogRepository blogRepository;
+        //private IBlogRepository blogRepository;
         private ICommentRepository commentRepository;
         private IImageRepository imageRepository;
         private ILikeRepository likeRepository;
@@ -30,13 +30,13 @@ namespace DAL_.UnitOfWork
             return await context.SaveChangesAsync() > 0;
         }
 
-        public IBlogRepository BlogRepository
-        {
-            get
-            {
-                return blogRepository = blogRepository ?? new BlogRepository(context);
-            }
-        }
+        //public IBlogRepository BlogRepository
+        //{
+        //    get
+        //    {
+        //        return blogRepository = blogRepository ?? new BlogRepository(context);
+        //    }
+        //}
 
         public ICommentRepository CommentRepository
         {

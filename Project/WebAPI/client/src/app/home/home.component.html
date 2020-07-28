@@ -2,8 +2,11 @@
     <app-header></app-header>
     
     <section class="main">
-      <app-search></app-search>
-      <app-random-posts></app-random-posts>
+      <div class="main-search">
+        <input type="text" placeholder="search post!" [(ngModel)]="searchStr">
+        <button class="btn" (click)="search()">Search!</button>
+      </div>
+      <app-random-posts [posts]="posts"></app-random-posts>
     </section>
   </div>
   

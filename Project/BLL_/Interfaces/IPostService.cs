@@ -9,8 +9,7 @@ namespace BLL_.Interfaces
         Task<IEnumerable<CommentDTO>> GetComments(int id);
         Task<IEnumerable<ImageDTO>> GetImages(int id);
         Task<IEnumerable<LikeDTO>> GetLikes(int id);
-        Task<BlogDTO> GetBlog(int id);
-        Task<TagDTO> GetTag(int id);
+        //Task<BlogDTO> GetBlog(int id);
         Task<IEnumerable<PostDTO>> Search(string searchStr);
     }
 }

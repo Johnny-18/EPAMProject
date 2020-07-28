@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL_.DTO;
@@ -81,13 +82,25 @@ namespace API.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> Search()
         {
-            var searchStr = Request.Query["search"];
+            var searchStr = Request.Query["str"];
 
             var posts = await _postService.Search(searchStr);
             if (posts == null)
                 return NotFound();
 
             return Ok(posts);
+        }
+
+        [HttpGet("id/{id}/tag")]
+        public async Task<IActionResult> GetTag(int id)
+        {
+            var tag = await _tagService.Get(id);
+            if(tag == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(tag);
         }
 
         //[Authorize]
@@ -111,7 +124,7 @@ namespace API.Controllers
                 Tag_Id = tagToCreate.Id,
                 Title = newPost.Title,
                 Text = newPost.Text,
-                Blog_Id = newPost.BlogId
+                User_Id = newPost.UserId
             };
 
             var res = await _postService.Create(postDTO);
@@ -182,7 +195,7 @@ namespace API.Controllers
         public async Task<IActionResult> DeletePost(int id)
         {
             var post = await _postService.Get(id);
-            if (post.Blog_Id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            if (post.User_Id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return BadRequest();
 
             if (post == null)

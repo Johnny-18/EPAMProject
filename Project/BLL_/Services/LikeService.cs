@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
-using BLL_.DTO;
 using BLL_.Interfaces;
 using DAL_.Entyties;
 using DAL_.Exceptions;
 using DAL_.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace BLL_.Services
@@ -16,12 +11,10 @@ namespace BLL_.Services
     public class LikeService : ILikeService
     {
         private IUnitOfWork unitOfWork;
-        private IMapper mapper;
 
-        public LikeService(IUnitOfWork unitOfWork, IMapper mapper)
+        public LikeService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
         }
 
         public async Task<bool> DeleteLike(int userId, int postId)

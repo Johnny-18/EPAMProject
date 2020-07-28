@@ -3,4 +3,14 @@
       <div class="post-subtitle" *ngIf="showText">{{ post.text }}</div>
       <button class="btn" *ngIf="isEnable" (click)="delete()">Delete</button>
       <button class="btn" *ngIf="isEnable"  (click)="edit()">Edit</button>
+      <button class="btn special-btn" (click)="isShow = !isShow">Comments</button>
+      <button class="btn special-btn" (click)="isShowInput = !isShowInput" *ngIf="isLogining"> Add comment</button>
+      <div *ngIf="isShow">
+        <app-comment *ngFor="let comment of comments"></app-comment>
+      </div>
+      <div *ngIf="isShowInput">
+        <div style="font-size: medium; margin-left: 15px;">Input comment</div>
+        <input class="post-input" type="text">
+      </div>
+      
     </div>

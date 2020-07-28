@@ -9,7 +9,6 @@ namespace DAL_.Interfaces
         Task<IEnumerable<Comment>> GetComments(int id);
         Task<IEnumerable<Image>> GetImages(int id);
         Task<IEnumerable<Like>> GetLikes(int id);
-        Task<Blog> GetBlog(int id);
-        Task<Tag> GetTag(int id);
+        //Task<Blog> GetBlog(int id);
     }
 }

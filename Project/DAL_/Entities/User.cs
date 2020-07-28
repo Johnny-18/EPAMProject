@@ -15,14 +15,16 @@ namespace DAL_.Entyties
         [MaxLength (20,ErrorMessage = "Password length from 6 to 20 symbols!")]
         [MinLength(6,ErrorMessage = "Password length from 6 to 20 symbols!")]
         public string Password { get; set; }
-        public Blog Blog { get; set; }
+        //public Blog Blog { get; set; }
         public ICollection<Image> Images { get; set; }
         public ICollection<UserRole> UserRoles { get; set; }
         public ICollection<Like> Likes { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<Post> Posts { get; set; }
 
         public User()
         {
+            Posts = new List<Post>();
             Likes = new List<Like>();
             UserRoles = new List<UserRole>();
             Comments = new List<Comment>();

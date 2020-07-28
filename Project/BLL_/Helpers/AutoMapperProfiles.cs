@@ -8,7 +8,7 @@ namespace BLL_.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<BlogDTO, Blog>().ReverseMap();
+            //CreateMap<BlogDTO, Blog>().ReverseMap();
             CreateMap<CommentDTO, Comment>().ReverseMap();
             CreateMap<ImageDTO, Image>().ReverseMap();
             CreateMap<LikeDTO, Like>().ReverseMap();

@@ -93,5 +93,33 @@ namespace BLL_.Services
 
             return false;
         }
+
+        public async Task<IEnumerable<PostDTO>> GetPosts(int id)
+        {
+            if (id <= 0)
+                throw new InvalidIdException("Id must be more than 0");
+
+            var user = await unitOfWork.UserRepository.GetById(id);
+            return mapper.Map<IEnumerable<PostDTO>>(user.Posts);
+        }
+
+        public async Task<IEnumerable<LikeDTO>> GetLikes(int id)
+        {
+            if (id <= 0)
+                throw new InvalidIdException("Id must be more than 0");
+
+            var user = await unitOfWork.UserRepository.GetById(id);
+            return mapper.Map<IEnumerable<LikeDTO>>(user.Likes);
+        }
+
+        public async Task<IEnumerable<CommentDTO>> GetComments(int id)
+        {
+            if (id <= 0)
+                throw new InvalidIdException("Id must be more than 0");
+
+            var user = await unitOfWork.UserRepository.GetById(id);
+            return mapper.Map<IEnumerable<CommentDTO>>(user.Comments);
+        }
+
     }
 }

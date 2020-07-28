@@ -3,6 +3,7 @@ import { Post } from '../models/post';
 import { PostToCreate } from '../models/postToCreate';
 import { PostService } from '../services/post.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -18,7 +19,7 @@ export class CreatePostComponent implements OnInit {
 
   post:any
 
-  constructor(private postService:PostService, private userService:UserService) { }
+  constructor(private postService:PostService, private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +35,7 @@ export class CreatePostComponent implements OnInit {
     };
 
     const res = this.postService.createPost(post).subscribe(data => this.post = data);
+    this.router.navigate(['blog']);
     console.log(this.post);
   }
 

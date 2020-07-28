@@ -1,0 +1,98 @@
+.register{
+  position: relative;
+  width: 40vw;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  background: bisque;
+}
+
+.register-title{
+  font-size: 35px;
+  font-family: Mulish;
+  margin: auto;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.register-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.register-content > label, .password-label {
+  font-size: 18px;
+  font-family: Mulish;
+  margin-bottom: 8px;
+}
+
+.register-content > input, .password-input {
+  font-family: Mulish;
+  margin-left: 15px;
+  width: 60%;
+  border-radius: 6px;
+  height: 25px;
+  border: none;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  outline: none;
+}
+
+.register-btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.register-btns > button {
+  margin-right: 15px;
+  height: 35px;
+  width: 140px;
+  font-family: Mulish;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  background: darkturquoise;
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.register-btns > a{
+  display: inline-block;
+  margin-right: 15px;
+  height: 35px;
+  width: 140px;
+  font-family: Mulish;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  background: darkturquoise;
+  font-size: 23px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+}
+
+.register-btns > button:hover, .register-btns > a:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  transition: all 0.2s linear;
+}
+
+.register-btns> :nth-child(1) {
+  margin-left: 26px;
+}
+
+.passwords-block{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

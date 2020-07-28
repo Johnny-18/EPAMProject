@@ -1,0 +1,9 @@
+.main-posts{
+    height: 75vh;
+    display: flex;
+    font-family: Mulish;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    background: bisque;
+  }

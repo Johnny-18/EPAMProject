@@ -13,8 +13,5 @@ namespace BLL_.DTO
         public DateTime Created { get; set; }
         public BlogDTO Blog { get; set; }
         public TagDTO Tag { get; set; }
-        public ICollection<ImageDTO> Images { get; set; }
-        public ICollection<LikeDTO> Likes { get; set; }
-        public ICollection<CommentDTO> Comments { get; set; }
     }
 }

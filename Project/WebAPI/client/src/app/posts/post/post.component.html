@@ -1,1 +1,6 @@
-<p>post works!</p>
+    <div class="post">
+      <div class="post-title"> <b>{{ title }}</b> </div>
+      <div class="post-subtitle">{{ text }}</div>
+      <button class="btn" (click)="delete()">Delete</button>
+      <button class="btn" (click)="edit()">Edit</button>
+    </div>

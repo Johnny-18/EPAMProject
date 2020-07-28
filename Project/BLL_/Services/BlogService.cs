@@ -26,7 +26,7 @@ namespace BLL_.Services
             _authService = auth;
         }
 
-        public async Task<bool> Create(BlogDTO item)
+        public async Task<BlogDTO> Create(BlogDTO item)
         {
             if (item == null)
                 throw new ArgumentNullException();
@@ -36,10 +36,10 @@ namespace BLL_.Services
             unitOfWork.BlogRepository.Add(blog);
             if(await _authService.AddRole(blog.User.Email, "Blogger"))
             {
-                return true;
+                return item;
             }
 
-            return false;
+            return null;
         }
 
         public async Task<BlogDTO> Get(int id)

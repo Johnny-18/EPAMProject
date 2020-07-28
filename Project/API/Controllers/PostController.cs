@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL_.DTO;
 using BLL_.Interfaces;
-using DAL_.Entyties;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -17,18 +12,30 @@ namespace API.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private IMapper _mapper;
         private IPostService _postService;
         private ILikeService _likeService;
+        private ITagService _tagService;
 
         public PostController(
-            IMapper mapper, 
             IPostService postService, 
-            ILikeService likeService)
+            ILikeService likeService,
+            ITagService tagService)
         {
-            _mapper = mapper;
             _postService = postService;
             _likeService = likeService;
+            _tagService = tagService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPosts()
+        {
+            var posts = await _postService.GetAll();
+            if(posts == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(posts);
         }
 
         [HttpGet("id/{id}")]
@@ -44,31 +51,31 @@ namespace API.Controllers
         [HttpGet("id/{id}/comments")]
         public async Task<IActionResult> GetComments(int id)
         {
-            var post = await _postService.Get(id);
-            if (post == null)
+            var comments = await _postService.GetComments(id);
+            if (comments == null)
                 return NotFound();
 
-            return Ok(post.Comments);
+            return Ok(comments);
         }
 
         [HttpGet("id/{id}/likes")]
         public async Task<IActionResult> GetLikes(int id)
         {
-            var post = await _postService.Get(id);
-            if (post == null)
+            var likes = await _postService.GetLikes(id);
+            if (likes == null)
                 return NotFound();
 
-            return Ok(post.Likes);
+            return Ok(likes);
         }
 
         [HttpGet("id/{id}/images")]
         public async Task<IActionResult> GetImages(int id)
         {
-            var post = await _postService.Get(id);
-            if (post == null)
+            var images = await _postService.GetImages(id);
+            if (images == null)
                 return NotFound();
 
-            return Ok(post.Images);
+            return Ok(images);
         }
 
         [HttpGet("search")]
@@ -83,25 +90,43 @@ namespace API.Controllers
             return Ok(posts);
         }
 
-        [Authorize(Roles = "Blogger")]
+        //[Authorize]
         [HttpPost]
-        public async Task<IActionResult> CreatePost([FromBody]PostDTO newPost)
+        public async Task<IActionResult> CreatePost([FromBody]PostToCreateDTO newPost)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var res = await _postService.Create(newPost);
-            if (res)
+            var tag = new TagDTO
             {
-                return CreatedAtRoute("GetPost", new { id = newPost.Id}, newPost);
+                Name = newPost.TagName
+            };
+            //var tag = await _tagService.GetByName(newPost.TagName);
+            //if(tag == null)
+            //{
+            //    tag = await _tagService.Create(new TagDTO { Name = newPost.TagName});
+            //}
+
+            var postDTO = new PostDTO
+            {
+                Tag = tag,
+                Title = newPost.Title,
+                Text = newPost.Text,
+                Blog_Id = newPost.BlogId
+            };
+
+            var res = await _postService.Create(postDTO);
+            if (res != null)
+            {
+                return Ok(newPost);
             }
 
             return BadRequest();
         }
 
-        [Authorize(Roles = "Moderator")]
+        //[Authorize]
         [HttpPut]
         public async Task<IActionResult> ChangePost([FromBody]PostDTO updatedPost)
         {
@@ -155,7 +180,7 @@ namespace API.Controllers
             return BadRequest();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("id/{id}")]
         public async Task<IActionResult> DeletePost(int id)
         {

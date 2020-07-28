@@ -1,0 +1,53 @@
+.blog-content{
+    position: relative;
+    width: 70%;
+    margin: auto;
+    background: bisque;
+    height: 90vh;
+    border-radius: 35px;
+    margin-top: 15px;
+  }
+  .blog-header{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+  }
+  .blog-posts{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 85%;
+    margin: auto;
+    border-radius: 12px;
+    background: darkturquoise;
+    overflow: auto;
+  }
+  
+  .post{
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto;
+    background: beige;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  .post-subtitle{
+    margin-bottom: 10px;
+  }
+  .link-btn{
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+    height: 24px;
+    width: 80px;
+    font-family: Mulish;
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+    background: darkturquoise;
+    font-size: 16px;
+    text-align: center;
+  }

@@ -28,6 +28,7 @@ namespace DAL_.Entyties
             Images = new List<Image>();
             Likes = new List<Like>();
             Comments = new List<Comment>();
+            Created = DateTime.Now;
         }
     }
 }

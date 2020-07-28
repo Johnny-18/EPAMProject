@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
 
@@ -13,9 +13,13 @@ import { RegisterComponent } from './user/register/register.component';
 import { BlogComponent } from './blog/blog.component';
 import { HeaderComponent } from './home/header/header.component';
 import { SearchComponent } from './home/search/search.component';
-import { UserService } from './user/user.service';
+import { UserService } from './services/user.service';
 import { environment } from 'src/environments/environment';
-import { BASE_URL } from './app-injections-tokens';
+import { BASE_URL} from './app-injections-tokens';
+import { RandomPostsComponent } from './home/random-posts/random-posts.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { PostService } from './services/post.service';
+import { BlogService } from './services/blog.service';
 
 @NgModule({
   declarations: [
@@ -28,24 +32,31 @@ import { BASE_URL } from './app-injections-tokens';
     BlogComponent,
     HomeComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    RandomPostsComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal'}),
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component : HomeComponent},
-      { path: 'blog', component : BlogComponent},
-      { path: 'login', component : LoginComponent},
-      { path: 'register', component : RegisterComponent}
+      { path: '', component: HomeComponent},
+      { path: 'login', component: LoginComponent},
+      { path: 'register', component: RegisterComponent},
+      { path: 'blog', component: BlogComponent},
+      { path: 'createPost', component: CreatePostComponent},
+      { path: '**', redirectTo: '/'}
     ])
   ],
   providers: [UserService,
-  {
-    provide:BASE_URL,
-    useValue:environment.baseUrl
-  }],
+              PostService,
+              BlogService,
+              {
+                provide:BASE_URL,
+                useValue:environment.baseUrl
+              }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

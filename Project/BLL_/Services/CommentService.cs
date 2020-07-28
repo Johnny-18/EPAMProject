@@ -21,7 +21,7 @@ namespace BLL_.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> Create(CommentDTO item)
+        public async Task<CommentDTO> Create(CommentDTO item)
         {
             if (item == null)
                 throw new ArgumentNullException();
@@ -30,9 +30,10 @@ namespace BLL_.Services
 
             if(await _unitOfWork.SaveChangesAsync())
             {
-                return true;
+                return item;
             }
-            return false;
+
+            return null;
         }
 
         public async Task<CommentDTO> Get(int id)
@@ -98,11 +99,11 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var comment = await _unitOfWork.CommentRepository.GetById(id);
-            if (comment == null)
+            var user = await _unitOfWork.CommentRepository.GetUser(id);
+            if (user == null)
                 return null;
 
-            return _mapper.Map<UserDTO>(comment.User);
+            return _mapper.Map<UserDTO>(user);
         }
     }
 }

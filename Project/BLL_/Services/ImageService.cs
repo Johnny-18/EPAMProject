@@ -22,7 +22,7 @@ namespace BLL_.Services
             _unit = unit;
         }
 
-        public async Task<bool> Create(ImageDTO item)
+        public async Task<ImageDTO> Create(ImageDTO item)
         {
             if (item == null)
                 throw new ArgumentNullException();
@@ -32,10 +32,10 @@ namespace BLL_.Services
             _unit.ImageRepository.Add(image);
             if (await _unit.SaveChangesAsync())
             {
-                return true;
+                return item;
             }
 
-            return false;
+            return null;
 
         }
 
@@ -61,9 +61,9 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var image = await _unit.ImageRepository.GetById(id);
+            var user = await _unit.ImageRepository.GetUser(id);
 
-            return _mapper.Map<User, UserDTO>(image.User);
+            return _mapper.Map<User, UserDTO>(user);
         }
 
         public async Task<bool> Remove(int id)

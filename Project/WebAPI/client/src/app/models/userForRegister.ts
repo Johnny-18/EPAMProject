@@ -4,8 +4,5 @@ export class UserForRegister{
     userName:string
     firstName:string
     lastName:string
-    gender:string
-    city:string
-    country:string
     age:string
 }

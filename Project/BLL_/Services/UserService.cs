@@ -21,7 +21,7 @@ namespace BLL_.Services
             this.mapper = mapper;
         }
 
-        public async Task<bool> Create(UserDTO item)
+        public async Task<UserDTO> Create(UserDTO item)
         {
             if (item == null)
                 throw new ArgumentNullException();
@@ -29,10 +29,10 @@ namespace BLL_.Services
             unitOfWork.UserRepository.Add(mapper.Map<UserDTO, User>(item));
             if(await unitOfWork.SaveChangesAsync())
             {
-                return true;
+                return item;
             }
 
-            return false;
+            return null;
         }
 
         public async Task<UserDTO> Get(int id)

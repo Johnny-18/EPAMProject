@@ -9,5 +9,6 @@ namespace BLL_.Interfaces
     public interface ITagService : IService<TagDTO>
     {
         Task<IEnumerable<PostDTO>> GetPosts(int id);
+        Task<TagDTO> GetByName(string tagName);
     }
 }

@@ -7,6 +7,5 @@ namespace DAL_.Interfaces
     public interface IBlogRepository : IRepository<Blog>
     {
         Task<IEnumerable<Post>> GetPosts(int id);
-        void Update(Blog item);
     }
 }

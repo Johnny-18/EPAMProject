@@ -21,7 +21,7 @@ namespace BLL_.Services
             this.mapper = mapper;
         }
 
-        public async Task<bool> Create(PostDTO item)
+        public async Task<PostDTO> Create(PostDTO item)
         {
             if (item == null)
                 throw new ArgumentNullException();
@@ -29,10 +29,10 @@ namespace BLL_.Services
             unitOfWork.PostRepository.Add(mapper.Map<Post>(item));
             if (await unitOfWork.SaveChangesAsync())
             {
-                return true;
+                return item;
             }
 
-            return false;
+            return null;
         }
 
         public async Task<PostDTO> Get(int id)
@@ -55,8 +55,8 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var post = await Get(id);
-            return post.Blog;
+            var blog = await unitOfWork.PostRepository.GetBlog(id);
+            return mapper.Map<BlogDTO>(blog);
         }
 
         public async Task<IEnumerable<CommentDTO>> GetComments(int id)
@@ -64,8 +64,8 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var post = await unitOfWork.PostRepository.GetById(id);
-            return mapper.Map<IEnumerable<CommentDTO>>(post.Comments);
+            var comments = await unitOfWork.PostRepository.GetComments(id);
+            return mapper.Map<IEnumerable<CommentDTO>>(comments);
         }
 
         public async Task<IEnumerable<ImageDTO>> GetImages(int id)
@@ -73,8 +73,8 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var post = await Get(id);
-            return post.Images;
+            var images = await unitOfWork.PostRepository.GetImages(id);
+            return mapper.Map<IEnumerable<ImageDTO>>(images);
         }
 
         public async Task<IEnumerable<LikeDTO>> GetLikes(int id)
@@ -82,8 +82,8 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var post = await Get(id);
-            return post.Likes;
+            var likes = await unitOfWork.PostRepository.GetLikes(id);
+            return mapper.Map<IEnumerable<LikeDTO>>(likes);
         }
 
         public async Task<TagDTO> GetTag(int id)
@@ -91,17 +91,17 @@ namespace BLL_.Services
             if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
-            var post = await Get(id);
-            return post.Tag;
+            var tag = await unitOfWork.PostRepository.GetTag(id);
+            return mapper.Map<TagDTO>(tag);
         }
 
         public async Task<bool> Remove(int id)
         {
-            if(id <= 0)
+            if (id <= 0)
                 throw new InvalidIdException("Id must be more than 0");
 
             unitOfWork.PostRepository.Remove(id);
-            if(await unitOfWork.SaveChangesAsync())
+            if (await unitOfWork.SaveChangesAsync())
             {
                 return true;
             }
@@ -122,7 +122,7 @@ namespace BLL_.Services
                 throw new ArgumentNullException();
 
             unitOfWork.PostRepository.Update(mapper.Map<Post>(item));
-            if(await unitOfWork.SaveChangesAsync())
+            if (await unitOfWork.SaveChangesAsync())
             {
                 return true;
             }
@@ -135,18 +135,44 @@ namespace BLL_.Services
             if (searchStr == null || searchStr == String.Empty)
                 throw new ArgumentNullException();
 
-            var filtered = new List<PostDTO>();
-
             var posts = await unitOfWork.PostRepository.GetAll();
             var postDTOs = mapper.Map<IEnumerable<PostDTO>>(posts);
 
+            var filtered = new List<PostDTO>();
             string searchStrModified = searchStr.ToLower().Replace(" ", "");
+
+            if(searchStrModified.IndexOf('#') == -1)
+            {
+                return SearchByText(searchStrModified, postDTOs, filtered);
+            }
+
+            return SearchByTag(searchStrModified, postDTOs, filtered);
+        }
+
+        private IEnumerable<PostDTO> SearchByTag(string searchStr, 
+                                                IEnumerable<PostDTO> postDTOs,
+                                                List<PostDTO> filtered)
+        {
+            foreach (var postDTO in postDTOs)
+            {
+                string name = postDTO.Tag.Name.ToLower().Replace(" ", "");
+                if (name.IndexOf(searchStr) != -1)
+                {
+                    filtered.Add(postDTO);
+                }
+            }
+
+            return filtered;
+        }
+
+        private IEnumerable<PostDTO> SearchByText(string searchStr, 
+                                                  IEnumerable<PostDTO> postDTOs,
+                                                  List<PostDTO> filtered)
+        {
             foreach (var postDTO in postDTOs)
             {
                 string text = postDTO.Text.ToLower().Replace(" ", "");
-                string name = postDTO.Tag.Name.ToLower().Replace(" ", "");
-
-                if (text.IndexOf(searchStrModified) != -1 || name.IndexOf(searchStrModified) != -1)
+                if (text.IndexOf(searchStr) != -1)
                 {
                     filtered.Add(postDTO);
                 }

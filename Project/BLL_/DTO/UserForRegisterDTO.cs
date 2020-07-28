@@ -18,12 +18,6 @@ namespace BLL_.DTO
         [Required]
         public string LastName { get; set; }
         [Required]
-        public string Gender { get; set; }
-        [Required]
-        public string City { get; set; }
-        [Required]
-        public string Country { get; set; }
-        [Required]
         public string Age { get; set; }
         public DateTime Created { get; set; }
 

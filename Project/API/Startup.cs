@@ -46,6 +46,9 @@ namespace API
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<ILikeService, LikeService>();
+            services.AddScoped<ITagService, TagService>();
+            services.AddScoped<IImageService, ImageService>();
             services.AddTransient<IAuthService, AuthService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

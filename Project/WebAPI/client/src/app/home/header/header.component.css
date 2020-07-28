@@ -1,0 +1,38 @@
+.header{
+  margin-top: 3px;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 9px;
+  background: bisque;
+}
+
+.logo{
+  margin-left: 15px;
+  font-size: 32px;
+}
+
+.header-link{
+  display: inline-block;
+  margin-right: 15px;
+  height: 20px;
+  width: 52px;
+  font-family: Mulish;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  background: darkturquoise;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+.header-link:hover{
+  opacity: 0.8;
+  transform: translateY(-2px);
+  transition: all 0.2s linear;
+}

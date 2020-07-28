@@ -1,67 +1,58 @@
-<div>
-    <div>Регистрация</div>
+<div class="wrapper">
     <div class="register">
-        <label for="input-email">Введите Email</label>
+        <a class="exit-btn" routerLink="/login">X</a>
+        <div class="register-title">Register</div>
+    <form [formGroup]="registerModel" autocomplete="off" (submit)="onSubmit()" class="register-content">
+        <label for="input-email">Email</label>
         <input 
             id="input-email"
             type="email" 
-            placeholder="введите Ваш email"
-            [(ngModel)]="email">
-        <label for="input-firstName">Введите Имя</label>
+            placeholder="input email here"
+            formControlName="Email">
+        <label for="input-firstName">Name</label>
         <input 
             id="input-firstName"
             type="text" 
-            placeholder="введите Ваше имя"
-            [(ngModel)]="firstName">
-        <label for="input-lastName">Введите Фамилия</label>
+            placeholder="input name here"
+            formControlName="Name">
+        <label for="input-lastName">Surname</label>
         <input 
             id="input-lastName"
             type="text" 
-            placeholder="введите Вашу фамилию"
-            [(ngModel)]="lastName">
-        <label for="input-userName">Введите Имя пользователя</label>
+            placeholder="input surname here"
+            formControlName="Surname">
+        <label for="input-userName">Username</label>
         <input 
             id="input-userName"
             type="text" 
-            placeholder="введите Имя пользователя"
-            [(ngModel)]="userName">
-        <label for="select-gender">Выберите Стать</label>
-        <select id="select-gender" name="gender" size="1" [(ngModel)]="gender">
-            <option disabled>Выберите Ваш пол</option>
-            <option value="Мужская">Мужская</option>
-            <option value="Женская">Женская</option>
-        </select>
-        <label for="input-age">Ваш возраст</label>
+            placeholder="input surname here"
+            formControlName="Username">
+        <label for="input-age">Age</label>
         <input 
             id="input-age"
             type="number" 
-            [(ngModel)]="age">
-        <label for="select-country">Выберите страну</label>
-        <select id="select-country" name="country" size="1" [(ngModel)]="country">
-            <option value="Украина">Украина</option>
-            <option value="Россия">Россия</option>
-            <option value="Белорусь">Белорусь</option>
-        </select>
-        <label for="select-city">Выберите город</label>
-        <select id="select-city" name="city" size="1" [(ngModel)]="city">
-            <option value="Киев">Киев</option>
-            <option value="Москва">Москва</option>
-            <option value="Минск">Минск</option>
-        </select>
-        <label for="input-password">Пароль</label>
-        <input 
-            id="input-password"
-            type="text" 
-            placeholder="введите Пароль"
-            [(ngModel)]="password">
-        <label for="input-confPassword">Подтверждение пароля</label>
-        <input 
-            id="input-confPassword"
-            type="text"
-            placeholder="Подтверждение пароля"
-            [(ngModel)]="confPassword"
-            >
+            placeholder="input age here"
+            formControlName="Age">
+        <div formGroupName="Passwords" class="passwords-block">
+            <label for="input-password"  class="password-label">Password</label>
+            <input 
+                id="input-password"
+                type="password" 
+                placeholder="input password here"
+                formControlName="Password"
+                class="password-input">
+            <label for="input-confPassword" class="password-label">Confirm password</label>
+            <input 
+                id="input-confPassword"
+                type="password"
+                placeholder="input password here"
+                formControlName="ConfirmPassword"
+                class="password-input">
+        </div>
         <br>
-        <button (click)="register()">Зарегистрироваться</button>  
+        <div class="register-btns">
+            <button type="submit" [disabled]="!registerModel.valid">Register</button>
+        </div>
+    </form>
     </div>  
 </div>

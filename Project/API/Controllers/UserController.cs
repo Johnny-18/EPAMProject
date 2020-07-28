@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
-using BLL_.DTO;
 using BLL_.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -23,9 +18,9 @@ namespace API.Controllers
             _userService = userService;
         }
 
-        [HttpGet("GetUser")]
-        [Route("{id}")]
-        public async Task<IActionResult> GetUserAsync(int id)
+        [HttpGet]
+        [Route("id/{id}")]
+        public async Task<IActionResult> GetUser(int id)
         {
             var user = await _userService.Get(id);
             if (user == null)
@@ -34,8 +29,8 @@ namespace API.Controllers
             return Ok(user);
         }
 
-        [HttpGet()]
-        public async Task<IActionResult> GetUsersAsync()
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
         {
             var users = await _userService.GetAll();
             if (users == null)

@@ -23,23 +23,30 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserForRegisterDTO user)
+        public async Task<IActionResult> Register([FromBody]UserForRegisterDTO user)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Model invalid");
+            }
+
             var createdUser = await _authService.Register(user);
             if (createdUser is null)
             {
                 return BadRequest("Fail to create user");
             }
 
-            // return route(URL) to user controller
-            //return CreatedAtRoute("GetUser",
-            //    new { controller = "users", id = createdUser.Id }, createdUser);
             return Ok(createdUser);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserForLoginDTO user)
+        public async Task<IActionResult> Login([FromBody]UserForLoginDTO user)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Model invalid");
+
+            }
             //check for valid
             var userFromDb = await _authService.LogIn(user);
             if (userFromDb == null)
@@ -51,7 +58,6 @@ namespace API.Controllers
             var userToken = await _authService.GenerateToken(userFromDb,
                 _configuration.GetSection("AuthKey:Token").Value);
 
-            //return User
             return Ok(new
             {
                 userToken,

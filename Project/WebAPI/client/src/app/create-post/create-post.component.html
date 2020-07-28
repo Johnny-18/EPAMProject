@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <div class="create-post">
+      <a class="exit-btn" routerLink="">X</a>
+      <div class="create-title">Create post</div>
+        <div style="
+        text-align: center;
+        font-size: 25px;
+        ">Title</div>
+        <input placeholder='input title here' [(ngModel)]="title"/>
+        <div style="
+        text-align: center;
+        font-size: 25px;
+        ">Subtitle</div>
+        <textarea placeholder='input subtitle here' 
+        style="height: 270px;border: none;border-radius: 14px;margin: auto;width: 94%;margin-right: 18px;"
+        [(ngModel)]="text">
+        </textarea>
+        <div style="
+        text-align: center;
+        font-size: 25px;
+        ">Tag name</div>
+        <input type="text" [(ngModel)]="tagName" placeholder="input tag name here"/>
+        <button style="margin-top: 11px;" (click)="createPost()">Create</button>  
+    </div>
+  </div> 
+  
+

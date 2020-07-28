@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BLL_.DTO;
 using BLL_.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -34,11 +30,11 @@ namespace API.Controllers
         [HttpGet("id/{id}/user")]
         public async Task<IActionResult> GetUser(int id)
         {
-            var comment = await _commentService.Get(id);
-            if (comment == null)
+            var user = await _commentService.GetUser(id);
+            if (user == null)
                 return NotFound();
 
-            return Ok(comment.User);
+            return Ok(user);
         }
 
         [Authorize]
@@ -51,7 +47,7 @@ namespace API.Controllers
             }
 
             var res = await _commentService.Create(comment);
-            if (res)
+            if (res != null)
             {
                 return Ok(comment);
             }
@@ -70,7 +66,7 @@ namespace API.Controllers
             var res = await _commentService.Remove(comment);
             if (res)
             {
-                return Ok();
+                return Ok("Deleted");
             }
 
             return BadRequest("Didn't deleted");

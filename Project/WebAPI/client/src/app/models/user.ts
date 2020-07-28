@@ -10,4 +10,5 @@ export class User{
     dateOfCreating:any
     county:string
     city:string
+    role:any
 }

@@ -7,7 +7,7 @@ namespace BLL_.Interfaces
     {
         Task<IEnumerable<T>> GetAll();
         Task<T> Get(int id);
-        Task<bool> Create(T item);
+        Task<T> Create(T item);
         Task<bool> Update(T item);
         Task<bool> Remove(int id);
         Task<bool> Remove(T item);

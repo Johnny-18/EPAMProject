@@ -1,18 +1,16 @@
-<div className='modal'>
-    <div className='modal-content' style="height: '60%'">
-      <div className='modalLogIn-title'>Авторизация</div>
-      <br>
-      <div className='modal-mainContent'>
-        <div>Email</div>
-        <input  
-            placeholder='введите Ваш email' 
-            [(ngModel)]="email"
-             />
-        <div>Пароль</div>
-        <input  
-            placeholder='введите Ваш пароль' 
-            [(ngModel)]="password"/>
-        <button (click)="login()">Log in</button>  
+<div class="wrapper">
+  <div class="login">
+    <a class="exit-btn" routerLink="">X</a>
+    <div class="login-title">Log in</div>
+    <form class="login-content" [formGroup]="loginModel" (submit)="onSubmit()">
+      <div>Email</div>
+      <input placeholder='input email here'autocomplete="off" (submit)="onSubmit()" formControlName="Email"/>
+      <div>Password</div>
+      <input type="password" placeholder='input password here' formControlName="Password"/>
+      <div class="login-btns">
+        <button type="submit" [disabled]="!loginModel.valid">Log in</button>  
+        <a class="login-link" routerLink="/register">Register</a>
       </div>
-    </div> 
+    </form>
   </div>
+</div> 

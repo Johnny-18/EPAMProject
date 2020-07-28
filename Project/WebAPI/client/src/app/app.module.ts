@@ -22,6 +22,7 @@ import { PostService } from './services/post.service';
 import { BlogService } from './services/blog.service';
 import { CommentsComponent } from './posts/post/comments/comments.component';
 import { CommentComponent } from './posts/post/comments/comment/comment.component';
+import { CreateCommentComponent } from './posts/post/comments/create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CommentComponent } from './posts/post/comments/comment/comment.componen
     RandomPostsComponent,
     CreatePostComponent,
     CommentsComponent,
-    CommentComponent
+    CommentComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal'}),

@@ -55,7 +55,7 @@ namespace API.Controllers
             return Ok(blogs);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateBlog([FromBody]BlogDTO blog)
         {
@@ -73,7 +73,7 @@ namespace API.Controllers
             return BadRequest("Don't created");   
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut]
         public async Task<IActionResult> ChangeBlog([FromBody]BlogDTO updatedBlog)
         {

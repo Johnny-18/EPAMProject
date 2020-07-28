@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BASE_URL} from '../app-injections-tokens';
 import { UserService } from './user.service';
-import { decode } from 'querystring';
 
 @Injectable({
     providedIn: 'root'
@@ -29,8 +28,12 @@ export class BlogService{
 
     getById(id:number){
         console.log('id' , id);
-
         return this.http_.get(`${this.baseUrl}api/blogs/id/` + id.toString());
+    }
+
+    getPostsByBlogId(id:number){
+        console.log('id' , id);
+        return this.http_.get(`${this.baseUrl}api/blogs/id/${id.toString()}/posts`);
     }
 
 }

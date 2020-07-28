@@ -1,6 +1,6 @@
     <div class="post">
-      <div class="post-title"> <b>{{ title }}</b> </div>
-      <div class="post-subtitle">{{ text }}</div>
-      <button class="btn" (click)="delete()">Delete</button>
-      <button class="btn" (click)="edit()">Edit</button>
+      <div class="post-title" (click)="showText = !showText"> <b>{{ post.title }}</b> </div>
+      <div class="post-subtitle" *ngIf="showText">{{ post.text }}</div>
+      <button class="btn" *ngIf="isEnable" (click)="delete()">Delete</button>
+      <button class="btn" *ngIf="isEnable"  (click)="edit()">Edit</button>
     </div>

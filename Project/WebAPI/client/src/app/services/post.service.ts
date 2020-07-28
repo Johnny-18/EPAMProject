@@ -33,4 +33,19 @@ export class PostService{
               })
         })
     }
+
+    deletePost(id:number){
+        console.log('id', id);
+        return this.http.delete(`${this.baseUrl}api/posts/id/${id}`);
+    }
+
+    changePost(model:any){
+        console.log('model ', model);
+        return this.http.put(`${this.baseUrl}api/posts/id/${model.id}`, JSON.stringify(model) ,{
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+              })
+            });
+    }
+
 }

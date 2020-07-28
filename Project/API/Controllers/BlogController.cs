@@ -33,7 +33,7 @@ namespace API.Controllers
             return Ok(blog);
         }
 
-        [HttpGet("{id}/posts")]
+        [HttpGet("id/{id}/posts")]
         public async Task<IActionResult> GetPosts(int id)
         {
             var posts = await _blogservice.GetPosts(id);

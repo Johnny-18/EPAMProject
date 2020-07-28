@@ -10,6 +10,7 @@ import { PostService } from '../services/post.service';
 export class PostsComponent implements OnInit {
 
   posts:any;
+  isEnable:boolean = true
 
   constructor(private postService: PostService) { }
 
@@ -18,7 +19,7 @@ export class PostsComponent implements OnInit {
   }
 
   getAll(){
-    //this.posts = JSON.parse(this.postService.getAll());
+    this.postService.getAll();
     console.log(this.posts);
   }
 

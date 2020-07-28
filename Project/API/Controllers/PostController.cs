@@ -99,18 +99,16 @@ namespace API.Controllers
                 return BadRequest();
             }
 
-            TagDTO tag = await _tagService.GetByName(newPost.TagName);
-            if(tag == null)
+            TagDTO tagToCreate = await _tagService.GetByName(newPost.TagName);
+            if (tagToCreate == null)
             {
-                tag = new TagDTO
-                {
-                    Name = newPost.TagName
-                };
+                await _tagService.Create(new TagDTO{ Name = newPost.TagName });
+                tagToCreate = await _tagService.GetByName(newPost.TagName);
             }
 
             var postDTO = new PostDTO
             {
-                Tag_Id = tag.Id,
+                Tag_Id = tagToCreate.Id,
                 Title = newPost.Title,
                 Text = newPost.Text,
                 Blog_Id = newPost.BlogId

@@ -20,9 +20,7 @@ import { RandomPostsComponent } from './home/random-posts/random-posts.component
 import { CreatePostComponent } from './create-post/create-post.component';
 import { PostService } from './services/post.service';
 import { BlogService } from './services/blog.service';
-import { CommentsComponent } from './posts/post/comments/comments.component';
-import { CommentComponent } from './posts/post/comments/comment/comment.component';
-import { CreateCommentComponent } from './posts/post/comments/create-comment/create-comment.component';
+import { CommentComponent } from './posts/post/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +36,7 @@ import { CreateCommentComponent } from './posts/post/comments/create-comment/cre
     SearchComponent,
     RandomPostsComponent,
     CreatePostComponent,
-    CommentsComponent,
-    CommentComponent,
-    CreateCommentComponent
+    CommentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal'}),

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/app/models/post';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post',
@@ -8,15 +10,14 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  text:string;
-  title:string;
+  @Input() post:Post
+  showText:boolean
+  @Input() isEnable:boolean = true
 
-  constructor(private postService:PostService) { }
+  constructor(private postService:PostService, private userService:UserService) { }
 
   ngOnInit(): void {
-    const post = this.postService.getById(1);
-    this.text = post.text;
-    this.title = post.title;
+
   }
 
   delete(){

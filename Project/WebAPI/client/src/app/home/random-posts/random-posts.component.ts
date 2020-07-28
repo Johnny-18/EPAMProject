@@ -12,6 +12,7 @@ export class RandomPostsComponent implements OnInit {
   returnedData:any
   posts:Post[]
   isEmpty:boolean = true
+  isEnable:boolean
 
   constructor(private postService:PostService) { }
 

@@ -1,2 +1,1 @@
-<div *ngIf="isEmpty">No posts</div>
-<app-post *ngFor="let post of posts"></app-post>
+<app-post *ngFor="let post of posts" [isEnable]='isEnable'></app-post>

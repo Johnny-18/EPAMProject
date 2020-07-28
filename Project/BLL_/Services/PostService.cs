@@ -6,6 +6,7 @@ using DAL_.Exceptions;
 using DAL_.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BLL_.Services
@@ -26,10 +27,13 @@ namespace BLL_.Services
             if (item == null)
                 throw new ArgumentNullException();
 
-            unitOfWork.PostRepository.Add(mapper.Map<Post>(item));
-            if (await unitOfWork.SaveChangesAsync())
+            if (ValidatePostToCreate(item))
             {
-                return item;
+                unitOfWork.PostRepository.Add(mapper.Map<Post>(item));
+                if (await unitOfWork.SaveChangesAsync())
+                {
+                    return item;
+                }
             }
 
             return null;
@@ -179,6 +183,19 @@ namespace BLL_.Services
             }
 
             return filtered;
+        }
+
+        private bool ValidatePostToCreate(PostDTO item)
+        {
+            var posts = unitOfWork.PostRepository.GetAll().Result;
+            if (posts != null)
+            {
+                var findOverlapPost = posts.Where(x => x.Title == item.Title || x.Text == item.Text).FirstOrDefault();
+                if (findOverlapPost != null)
+                    return false;
+            }
+
+            return true;
         }
     }
 }

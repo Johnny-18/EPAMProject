@@ -4,11 +4,11 @@ using System.Text;
 
 namespace BLL_.DTO
 {
-    public class PostToCreateDTO
+    public class PostToChangeCreateDTO
     {
         public string Title { get; set; }
         public string Text { get; set; }
         public string TagName { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

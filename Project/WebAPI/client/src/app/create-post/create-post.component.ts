@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../models/post';
 import { PostToCreate } from '../models/postToCreate';
 import { PostService } from '../services/post.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { I18nPluralPipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-post',
@@ -12,32 +13,44 @@ import { Router } from '@angular/router';
 })
 export class CreatePostComponent implements OnInit {
 
-  title:string
-  text:string
+  @Input() title:string
+  @Input() text:string
   tagName:string
   userId:number
 
-  post:any
+  post:PostToCreate
 
   constructor(private postService:PostService, private userService:UserService, private router:Router) { }
 
+  @Input() isChange:boolean = false
+
   ngOnInit(): void {
+    this.userId = this.userService.getDecodedAccessToken(localStorage.getItem('token')).nameid;
   }
 
   createPost(){
-    this.userId = this.userService.getDecodedAccessToken(localStorage.getItem('token')).nameid;
-    console.log('user id ', this.userId);
-    const post:PostToCreate = {
+    
+    this.post = {
       title:this.title,
       text:this.text,
       tagName:`#${this.tagName}`,
       userId: this.userId
     };
+    console.log('id : ', this.userId);
+    this.postService.createPost(this.post).subscribe(data => { this.router.navigate(['blog']); this.post = data; }, err => console.log(err));
+    
+    console.log(this.post);
+  }
 
-    console.log('post', post);
-
-    this.postService.createPost(post).subscribe(data => this.post = data, err => { console.log(err)});
-    this.router.navigate(['blog']);
+  changePost(){
+    this.post = {
+      title:this.title,
+      text:this.text,
+      tagName:`#${this.tagName}`,
+      userId: this.userId
+    };
+    
+    this.postService.changePost(this.post).subscribe(data => this.post = data, err => console.log(err));
     console.log(this.post);
   }
 

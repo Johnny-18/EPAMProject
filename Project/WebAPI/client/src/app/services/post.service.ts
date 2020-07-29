@@ -29,7 +29,7 @@ export class PostService{
 
     createPost(model:PostToCreate){
         console.log(JSON.stringify(model));
-        return this.http.post(`${this.baseUrl}api/posts`, JSON.stringify(model),{
+        return this.http.post<PostToCreate>(`${this.baseUrl}api/posts`, JSON.stringify(model),{
             headers: new HttpHeaders({
                 "Content-Type": "application/json"
               })
@@ -41,7 +41,7 @@ export class PostService{
     }
 
     changePost(model:any){
-        return this.http.put(`${this.baseUrl}api/posts/id/${model.id}`, JSON.stringify(model) ,{
+        return this.http.put<PostToCreate>(`${this.baseUrl}api/posts/id/${model.id}`, JSON.stringify(model) ,{
             headers: new HttpHeaders({
                 "Content-Type": "application/json"
               })
@@ -50,11 +50,15 @@ export class PostService{
 
     search(searchStr:string){
         console.log(searchStr);
-        return this.http.get(`${this.baseUrl}api/posts?str=${searchStr}`);
+        return this.http.get(`${this.baseUrl}api/posts/search?str=${searchStr}`);
     }
 
     getComments(id:number){
         return this.http.get(`${this.baseUrl}api/posts/id/${id.toString()}/comments`);
+    }
+
+    getTag(id){
+        return this.http.get(`${this.baseUrl}api/posts/id/${id}/tag`);
     }
 
 }

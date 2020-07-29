@@ -3,6 +3,6 @@ export class Post{
     title:string
     text:string
     tagId:string
-    user_Id:number
+    userId:number
     created:any
 }

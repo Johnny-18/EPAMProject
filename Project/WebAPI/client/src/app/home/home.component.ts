@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { Post } from '../models/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,32 +11,16 @@ import { Post } from '../models/post';
 export class HomeComponent implements OnInit {
 
   searchStr:string
-  postsFromBack:any
-  posts:Post[]
+  posts:any
 
-  constructor(private postService:PostService) { }
+  constructor(private postService:PostService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   search(){
-    this.postService.search(this.searchStr).subscribe(data => this.postsFromBack = data);
-    if(!this.postsFromBack){
-      this.postsFromBack.forEach(element => {
-        let post = new Post();
-
-        post = {
-          id: element.id,
-          title:element.title,
-          text:element.text,
-          tagId:element.tag_id,
-          user_Id:element.user_id,
-          created:element.created
-        };
-
-        this.posts.push(post);
-      });
-    }
+    this.postService.search(this.searchStr).subscribe(data => this.posts = data);
+    this.router.navigate(['']);
   }
 
 }

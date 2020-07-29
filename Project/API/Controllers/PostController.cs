@@ -18,15 +18,18 @@ namespace API.Controllers
         private IPostService _postService;
         private ILikeService _likeService;
         private ITagService _tagService;
+        private IMapper _mapper;
 
         public PostController(
             IPostService postService, 
             ILikeService likeService,
-            ITagService tagService)
+            ITagService tagService,
+            IMapper mapper)
         {
             _postService = postService;
             _likeService = likeService;
             _tagService = tagService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -85,6 +88,10 @@ namespace API.Controllers
         public async Task<IActionResult> Search()
         {
             var searchStr = Request.Query["str"];
+            if(searchStr == "")
+            {
+                return Ok(await _postService.GetAll());
+            }
 
             var posts = await _postService.Search(searchStr);
             if (posts == null)
@@ -126,7 +133,7 @@ namespace API.Controllers
 
         //[Authorize]
         [HttpPost]
-        public async Task<IActionResult> CreatePost([FromBody]PostToCreateDTO newPost)
+        public async Task<IActionResult> CreatePost([FromBody]PostToChangeCreateDTO newPost)
         {
             if (!ModelState.IsValid)
             {
@@ -145,7 +152,7 @@ namespace API.Controllers
                 Tag_Id = tagToCreate.Id,
                 Title = newPost.Title,
                 Text = newPost.Text,
-                User_Id = newPost.UserId
+                User_Id = int.Parse(newPost.UserId)
             };
 
             var res = await _postService.Create(postDTO);
@@ -159,14 +166,14 @@ namespace API.Controllers
 
         //[Authorize]
         [HttpPut]
-        public async Task<IActionResult> ChangePost([FromBody]PostDTO updatedPost)
+        public async Task<IActionResult> ChangePost([FromBody]PostToChangeCreateDTO updatedPost)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var res = await _postService.Update(updatedPost);
+            var res = await _postService.Update(_mapper.Map<PostDTO>(updatedPost));
             if (res)
             {
                 return Ok(updatedPost);

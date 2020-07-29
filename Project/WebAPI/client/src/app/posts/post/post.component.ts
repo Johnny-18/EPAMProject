@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class PostComponent implements OnInit {
 
   @Input() post:Post
+  tag:any
   comments:any
   showText:boolean=false
   isShow:boolean=false
@@ -22,14 +23,25 @@ export class PostComponent implements OnInit {
   constructor(private postService:PostService, private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') != null)
+    let token = localStorage.getItem('token');
+    if(token != null)
     {
+      let decoded = this.userService.getDecodedAccessToken(token);
+      console.log(decoded);
+        if(decoded.role == 'Admin' || decoded.role == 'Moderator'){
+          this.isEnable = true;
+        }
       this.isLogining = true;
     }
+
   }
 
   delete(){
     this.postService.deletePost(this.post.id).subscribe();
     this.router.navigate(['']);
+  }
+
+  edit(){
+    this.router.navigate(['createPost']);
   }
 }

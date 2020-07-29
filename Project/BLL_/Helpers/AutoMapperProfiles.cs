@@ -13,7 +13,7 @@ namespace BLL_.Helpers
             CreateMap<ImageDTO, Image>().ReverseMap();
             CreateMap<LikeDTO, Like>().ReverseMap();
             CreateMap<PostDTO, Post>().ReverseMap();
-            CreateMap<PostToCreateDTO, Post>().ReverseMap();
+            CreateMap<PostToChangeCreateDTO, Post>().ReverseMap();
             CreateMap<RoleDTO, Role>().ReverseMap();
             CreateMap<TagDTO, Tag>().ReverseMap();
             CreateMap<UserDTO, User>().ReverseMap();

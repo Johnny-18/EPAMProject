@@ -24,8 +24,7 @@ namespace BLL_.Helpers
                 {
                     new Role {Name = "Admin"},
                     new Role {Name = "Member"},
-                    new Role {Name = "Moderator"},
-                    new Role {Name = "Blogger"}
+                    new Role {Name = "Moderator"}
                 };
 
                 foreach (var role in roles)
@@ -50,7 +49,7 @@ namespace BLL_.Helpers
                 if (result.Succeeded)
                 {
                     var admin = _userManager.FindByNameAsync("Admin").Result;
-                    List<string> roles = new List<string>() { "Admin", "Moderator" };
+                    List<string> roles = new List<string>() { "Admin"};
                     _userManager.AddToRolesAsync(admin, roles).Wait();
                 }
             }

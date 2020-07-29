@@ -2,6 +2,7 @@
       <div class="post-title" (click)="showText = !showText"> <b>{{ post.title }}</b> </div>
       <div class="post-subtitle" *ngIf="showText">{{ post.text }}</div>
       <button class="btn" *ngIf="isEnable" (click)="delete()">Delete</button>
+      <!-- <button class="btn" *ngIf="isEnable" (click)="edit()">Edit</button> -->
       <!-- <button class="btn special-btn" (click)="isShow = !isShow">Comments</button>
       <button class="btn special-btn" (click)="isShowInput = !isShowInput" *ngIf="isLogining"> Add comment</button>
       <div *ngIf="isShow">

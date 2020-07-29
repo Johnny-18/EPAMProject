@@ -1,21 +1,4 @@
   .post{
-    position: relative;
-    width: 70%;
-    margin: auto;
-    background: bisque;
-    height: 90vh;
-    border-radius: 35px;
-    margin-top: 15px;
-
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 85%;
-    margin: auto;
-    border-radius: 12px;
-    background: darkturquoise;
-    overflow: auto;
-
     padding: 5px;
     width: 90%;
     margin: 0 auto;
@@ -24,9 +7,11 @@
     margin-top: 15px;
     border-radius: 10px;
   }
+  
   .post-subtitle{
     margin-bottom: 10px;
   }
+
   .link-btn{
     text-decoration: none;
     color: black;

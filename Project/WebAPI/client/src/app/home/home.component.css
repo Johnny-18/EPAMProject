@@ -25,3 +25,7 @@
   .btn{
     margin-left: 1em;
   }
+
+  .posts{
+    overflow: auto;
+  }
